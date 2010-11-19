@@ -19,7 +19,7 @@ public class ContatoDAO {
 		conn = ConnectionFactory.getConnection();
 	}	
 	
-	public void adiciona(Contato contato){
+	public void salvar(Contato contato){
 		String sql = "insert into contatos(nome, email,endereco,dataNascimento) values (?,?,?,?)";
 		
 		try {

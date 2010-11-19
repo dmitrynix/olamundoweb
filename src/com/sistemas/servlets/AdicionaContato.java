@@ -44,7 +44,7 @@ public class AdicionaContato extends HttpServlet{
 		contato.setEmail(email);
 		
 		ContatoDAO dao = new ContatoDAO();
-		dao.adiciona(contato);
+		dao.salvar(contato);
 		
 		// imprime o nome do contato que foi adicionado
 		out.println("<html>");

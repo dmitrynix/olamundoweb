@@ -4,22 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Olá mundo</title>
+<title>Menu Geral</title>
 </head>
 <body>
-	<%
-		String mensagem = "ola mundo";
-	%>
-	<% out.println(mensagem); %> <br />
-	
-	<%
-		String desenvolvido = "desenvolvido por Faculdade CET";
-	%>
-	
-	<%= desenvolvido %>
-	
-	<%
-		System.out.println("Tudo foi executado");
-	%>
+
+	<a href="contato?acao=novo">Novo Contato</a>
+
 </body>
 </html>
