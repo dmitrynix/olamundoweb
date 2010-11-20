@@ -17,6 +17,8 @@
 		<input type="submit" value="Gravar" />
 	</form>
 	
+	<br/>
+	<a href="contato?acao=listar">Listar Todos</a>
 <body>
 
 </body>

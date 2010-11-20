@@ -21,7 +21,7 @@ public class ContatoController extends HttpServlet {
 		try {
 			String acao = request.getParameter("acao");
 			
-			if (acao.equals("listarContatos")){
+			if (acao.equals("listar")){
 				pagina = AcoesContato.listarTodos(request, response);				
 			}else if (acao.equals("novo")){
 				pagina = "novoContato.jsp";

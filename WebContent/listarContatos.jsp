@@ -10,13 +10,14 @@
 </head>
 <body>
 
+<a href="contato?acao=novo">Novo Contato</a>
+<br /><br />
 <table border="1">
-	<c:forEach var="contato" items="${contatos}" varStatus="id">
-		<tr bgcolor="#${id.count % 2 == 0 ? ’aaee88’ : ’ffffff’ }" >
-			<td>${id.count}</td>
+	<c:forEach var="contato" items="${contatos}">	
+		<tr>
 			<td>${contato.nome}</td>
 			<td>${contato.email}</td>
-		</tr>
+		</tr>	
 	</c:forEach>
 </table>
 
