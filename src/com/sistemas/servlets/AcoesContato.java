@@ -30,6 +30,9 @@ public class AcoesContato {
 			HttpServletResponse response) {
 		
 		List<Contato> contatos = contatoDao.getAll();
+		
+		Date dat1 = new Date();
+		
 		request.setAttribute("contatos", contatos);
 		
 		return "listarContatos.jsp";
