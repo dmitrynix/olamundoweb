@@ -24,7 +24,7 @@
         <tbody>
           <% try { ContatoDAO dao = new ContatoDAO(); List<Contato> lista = dao.getAll(); for(Contato c : lista) { %>
             <tr id="<%= c.getId() %>">
-              <td><%= c.getId() %></td>
+              <td><a href="contato?acao=ver&id=<%= c.getId() %>"><%= c.getId() %></a></td>
               <td><%= c.getNome() %></td>
               <td><%= c.getEndereco() %></td>
               <td><%= c.getDataNascimento() %></td>
