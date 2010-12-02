@@ -17,18 +17,15 @@ import com.sistemas.entidades.Contato;
 
 @WebServlet(value="/adicionaContato")
 public class AdicionaContato extends HttpServlet{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-	
+
 		PrintWriter out = resp.getWriter();
-		
+
 		String nome = req.getParameter("nome");
 		String email = req.getParameter("email");
 		String dataNascimentoStr = req.getParameter("dataNascimento");
@@ -41,21 +38,19 @@ public class AdicionaContato extends HttpServlet{
 			return;
 		}
 
-
 		Contato contato = new Contato();
 		contato.setNome(nome);
 		contato.setDataNascimento(dataNascimento);
 		contato.setEndereco(endereco);
 		contato.setEmail(email);
-		
+
 		ContatoDAO dao = new ContatoDAO();
 		dao.salvar(contato);
-		
-		// imprime o nome do contato que foi adicionado
+
 		out.println("<html>");
 		out.println("<body>");
 		out.println("Contato " + contato.getNome() + " adicionado com sucesso<br/>");
-		out.println("<a href='/OlaMundoWeb/cadastro.html'>Retornar</a>");
+		out.println("<a href='.'>Retornar</a>");
 		out.println("</body>");
 		out.println("</html>");	
 	}
