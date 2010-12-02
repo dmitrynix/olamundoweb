@@ -29,6 +29,7 @@
               <td><%= c.getEndereco() %></td>
               <td><%= c.getDataNascimentoFormulario() %></td>
               <td><a href="contato?acao=editar&id=<%= c.getId() %>">Editar</a></td>
+              <td><a href="apagaContato?&id=<%= c.getId() %>">Apagar</a></td>
             </tr>
             <% } } catch(Exception e) { out.print("Erro"); } %>
         </tbody>
