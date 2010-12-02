@@ -21,16 +21,12 @@ public class ContatoController extends HttpServlet {
 		try {
 			String acao = request.getParameter("acao");
 
-			if (acao.equals("listar")) {
-				pagina = AcoesContato.listarTodos(request, response);				
-			} else if (acao.equals("novo")) {
+			if (acao.equals("novo")) {
 				pagina = "novoContato.jsp";
 			} else if (acao.equals("ver")) {
 				pagina = "verContato.jsp";
 			} else if (acao.equals("editar")) {
 				pagina = "editarContato.jsp";
-			} else if (acao.equals("salvar")) {
-				pagina = AcoesContato.salvar(request, response);
 			}
 			
 		} catch (Exception e) {
