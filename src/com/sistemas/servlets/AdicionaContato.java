@@ -18,6 +18,11 @@ import com.sistemas.entidades.Contato;
 @WebServlet(value="/adicionaContato")
 public class AdicionaContato extends HttpServlet{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -35,8 +40,8 @@ public class AdicionaContato extends HttpServlet{
 			out.println("erro de conversão");
 			return;
 		}
-		
-		
+
+
 		Contato contato = new Contato();
 		contato.setNome(nome);
 		contato.setDataNascimento(dataNascimento);
@@ -52,8 +57,6 @@ public class AdicionaContato extends HttpServlet{
 		out.println("Contato " + contato.getNome() + " adicionado com sucesso<br/>");
 		out.println("<a href='/OlaMundoWeb/cadastro.html'>Retornar</a>");
 		out.println("</body>");
-		out.println("</html>");
-
-		
+		out.println("</html>");	
 	}
 }
