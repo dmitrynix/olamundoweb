@@ -33,8 +33,8 @@ public class ContatoDAO {
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, contato.getNome());
-			stmt.setString(2, contato.getEndereco());
-			stmt.setString(3, contato.getEmail());
+			stmt.setString(2, contato.getEmail());
+			stmt.setString(3, contato.getEndereco());
 			stmt.setDate(4, dataSql);
 
 			stmt.execute();
