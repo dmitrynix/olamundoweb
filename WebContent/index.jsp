@@ -1,6 +1,6 @@
-<%@page import="com.sistemas.dao.ContatoDAO" %>
-<%@page import="com.sistemas.entidades.Contato" %>
-<%@page import="java.util.List" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,17 +22,18 @@
           </tr>
         </thead>
         <tbody>
-          <% try { ContatoDAO dao = new ContatoDAO(); List<Contato> lista = dao.getAll(); for(Contato c : lista) { %>
-            <tr id="<%= c.getId() %>">
-              <td><a href="contato?acao=ver&id=<%= c.getId() %>"><%= c.getId() %></a></td>
-              <td><%= c.getNome() %></td>
-              <td><%= c.getEndereco() %></td>
-              <td><%= c.getDataNascimentoFormulario() %></td>
-              <td><a href="contato?acao=editar&id=<%= c.getId() %>">Editar</a></td>
-              <td><a href="apagaContato?&id=<%= c.getId() %>">Apagar</a></td>
+         <c:forEach var="contato" items="${contatos}"> 
+              <tr id="${ contato.id }">
+              <td><a href="contato?acao=ver&id=${contato.id}">${contato.id}</a></td>
+              <td>${contato.nome}</td>
+              <td>${contato.endereco}</td>
+              <td><fmt:formatDate value="${contato.dataNascimento}" /></td>
+              <td><a href="contato?acao=editar&id=${contato.id}">Editar</a></td>
+              <td><a href="contato?acao=apagar&id=${contato.id}">Apagar</a></td>
             </tr>
-            <% } } catch(Exception e) { out.print("Erro"); } %>
-        </tbody>
+         </c:forEach>
+       </tbody>
+       <jsp:useBean id="agora" class="java.util.Date"/>
       </table>
     </div>
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>

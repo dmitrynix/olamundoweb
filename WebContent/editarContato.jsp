@@ -1,8 +1,6 @@
-<%@page import="com.sistemas.dao.ContatoDAO" %>
-<%@page import="com.sistemas.entidades.Contato" %>
-<%@page import="java.util.List" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,20 +8,17 @@
     <title>Contato Page</title>
   </head>
   <body>
-  	<% Integer id = Integer.parseInt(request.getParameter("id")); %>
-	<% try { ContatoDAO dao = new ContatoDAO(); Contato c = dao.getById(id); %>
-  	<p><a href=".">Todos</a>.</p>
-    <p><a href="contato?acao=ver&id=<%= c.getId() %>">Ver Contato</a></p>
-		<form action="atualizaContato" method="get">
-		<input type="hidden" name="id" value="<%= c.getId() %>">
-		<input type="hidden" name="acao" value="salvar">
-		Nome: <input type="text" name="nome" value="<%= c.getNome() %>" /><br />
-		E-mail: <input type="text" name="email" value="<%= c.getEmail() %>"/><br />
-		Endere&ccedil;o: <input type="text" name="endereco" value="<%= c.getEnderecoFormulario() %>" /><br />
-		Data Nascimento: <input type="text" name="dataNascimento" value="<%= c.getDataNascimentoFormulario() %>" class="data" /><br />
-		<input type="submit" value="Gravar" />
-	</form>
-    <% } catch(Exception e) { out.print("Erro"); } %>
+    <p><a href=".">Todos</a>.</p>
+    <p><a href="contato?acao=ver&id=${contato.id}">Ver Contato</a></p>
+      <form action="contato" method="get">
+        <input type="hidden" name="id" value="${contato.id}">
+        <input type="hidden" name="acao" value="atualizar">
+        Nome: <input type="text" name="nome" value="${contato.nome}" /><br />
+        E-mail: <input type="text" name="email" value="${contato.email}"/><br />
+        Endere&ccedil;o: <input type="text" name="endereco" value="${contato.endereco}" /><br />
+        Data Nascimento: <input type="text" name="dataNascimento" value="<fmt:formatDate value="${contato.dataNascimento}" />" class="data" /><br />
+        <input type="submit" value="Gravar" />
+    </form>
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="javascripts/application.js"></script>

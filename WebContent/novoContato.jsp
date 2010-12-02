@@ -7,8 +7,8 @@
     <title>Novo Contato</title>
   </head>
   </body>
-	<form action="adicionaContato" method="get">
-		<input type="hidden" name="acao" value="salvar">
+	<form action="contato" method="get">
+		<input type="hidden" name="acao" value="salvar" />
 		Nome: <input type="text" name="nome" /><br />
 		E-mail: <input type="text" name="email" /><br />
 		Endere&ccedil;o: <input type="text" name="endereco" /><br />

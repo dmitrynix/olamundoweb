@@ -1,6 +1,6 @@
-<%@page import="com.sistemas.dao.ContatoDAO" %>
-<%@page import="com.sistemas.entidades.Contato" %>
-<%@page import="java.util.List" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,13 +10,11 @@
     <title>Contato Page</title>
   </head>
   <body>
-	<p><a href=".">Todos</a>.</p>
-	<% Integer id = Integer.parseInt(request.getParameter("id")); %>
-	<% try { ContatoDAO dao = new ContatoDAO(); Contato c = dao.getById(id); %>
-      <p><%= c.getId() %></p>
-      <p><%= c.getNome() %></p>
-      <p><%= c.getEndereco() %></p>
-      <p><%= c.getDataNascimento() %></p>
-    <% } catch(Exception e) { out.print("Erro"); } %>
+    <p><a href="contato?acao=list">Todos</a>.</p>
+    <p>${contato.id}</p>
+    <p>${contato.nome}</p>
+    <p>${contato.endereco}</p>
+    <p>${contato.email}</p>
+    <p><fmt:formatDate value="${contato.dataNascimento}" /></p>
   </body>
 </html>

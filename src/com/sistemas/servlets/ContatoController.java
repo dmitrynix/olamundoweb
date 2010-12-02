@@ -24,11 +24,18 @@ public class ContatoController extends HttpServlet {
 			if (acao.equals("novo")) {
 				pagina = "novoContato.jsp";
 			} else if (acao.equals("ver")) {
-				pagina = "verContato.jsp";
+				pagina = AcoesContato.ver(request, response);
 			} else if (acao.equals("editar")) {
-				pagina = "editarContato.jsp";
+				pagina = AcoesContato.editar(request, response);
+			} else if (acao.equals("salvar")){
+				pagina = AcoesContato.salvar(request, response);
+			} else if (acao.equals("atualizar")){
+				pagina = AcoesContato.atualizar(request, response);
+			} else if (acao.equals("apagar")){
+				pagina = AcoesContato.apagar(request, response);
+			} else {
+				pagina = AcoesContato.listar(request, response);
 			}
-			
 		} catch (Exception e) {
 			request.setAttribute("excecao", e);
 			pagina = "erro.jsp";
