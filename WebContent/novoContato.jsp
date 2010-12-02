@@ -12,11 +12,14 @@
 		Nome: <input type="text" name="nome" /><br />
 		E-mail: <input type="text" name="email" /><br />
 		Endere&ccedil;o: <input type="text" name="endereco" /><br />
-		Data Nascimento: <input type="text" name="dataNascimento" /><br />
+		Data Nascimento: <input type="text" name="dataNascimento" class="data" /><br />
 		<input type="submit" value="Gravar" />
 	</form>
 	
 	<br/>
 	<a href="contato?acao=listar">Listar Todos</a>
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascripts/application.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 package com.sistemas.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,12 +57,13 @@ public class ContatoDAO {
 			rs = stmt.executeQuery();
 
 			if (rs.next()) {
-
 				Long contato_id = new Long(rs.getInt("id"));
 
 				c1.setId(contato_id);
 				c1.setNome(rs.getString("nome"));
 				c1.setEmail(rs.getString("email"));
+				c1.setEndereco(rs.getString("endereco"));
+				c1.setDataNascimento(rs.getDate("datanascimento"));
 
 			}
 		} catch (SQLException e) {
@@ -101,7 +103,9 @@ public class ContatoDAO {
 				Contato c1 = new Contato();
 				c1.setId(rs.getLong("id"));
 				c1.setNome(rs.getString("nome"));
+				c1.setEndereco(rs.getString("endereco"));
 				c1.setEmail(rs.getString("email"));
+				c1.setDataNascimento(rs.getDate("datanascimento"));
 
 				listaContatos.add(c1);
 			}
@@ -113,4 +117,24 @@ public class ContatoDAO {
 
 		return listaContatos;
 	}
+
+    public void update(Contato c) throws Exception {
+
+		String dataFormatadaStr = null;
+
+		dataFormatadaStr = new SimpleDateFormat("yyyy-MM-dd")
+				.format(c.getDataNascimento());
+
+		java.sql.Date dataSql = java.sql.Date.valueOf(dataFormatadaStr);
+
+        String sql = "update contatos set nome=?, email=?, endereco=?, datanascimento=?" +
+                " where id=?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, c.getNome());
+        stmt.setString(2, c.getEmail());
+        stmt.setString(3, c.getEndereco());
+        stmt.setDate(4, dataSql);
+        stmt.setFloat(5, c.getId());
+        stmt.executeUpdate();
+    }
 }

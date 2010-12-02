@@ -27,6 +27,8 @@ public class ContatoController extends HttpServlet {
 				pagina = "novoContato.jsp";
 			} else if (acao.equals("ver")) {
 				pagina = "verContato.jsp";
+			} else if (acao.equals("editar")) {
+				pagina = "editarContato.jsp";
 			} else if (acao.equals("salvar")) {
 				pagina = AcoesContato.salvar(request, response);
 			}

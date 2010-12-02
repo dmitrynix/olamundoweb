@@ -27,13 +27,15 @@
               <td><a href="contato?acao=ver&id=<%= c.getId() %>"><%= c.getId() %></a></td>
               <td><%= c.getNome() %></td>
               <td><%= c.getEndereco() %></td>
-              <td><%= c.getDataNascimento() %></td>
-              <td><% //out.print("<a href=controle.jsp?action=excluir&cod_cliente="+c.getCod_cliente()+">Excluir</a>"); %></td>
-              <td><% //out.print("<a href=atualizar.jsp?cod_cliente="+c.getCod_cliente()+">Atualizar</a>"); %></td>
+              <td><%= c.getDataNascimentoFormulario() %></td>
+              <td><a href="contato?acao=editar&id=<%= c.getId() %>">Editar</a></td>
             </tr>
             <% } } catch(Exception e) { out.print("Erro"); } %>
         </tbody>
       </table>
     </div>
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascripts/application.js"></script>
   </body>
 </html>
