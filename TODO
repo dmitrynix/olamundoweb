@@ -1,0 +1,3 @@
+* Exibir a data de nascimento do contato, está sendo salva, mas não exibe;
+* Instanciar o objeto contato(s) no "controller";
+* Acentuação quando pega da base de dados;
