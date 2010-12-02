@@ -27,7 +27,12 @@ public class Contato extends Entidade {
 	}
 
 	public String getEndereco() {
-		return endereco;
+		String end_retorno = "Não informado";
+
+		if (endereco != null) {
+		  end_retorno = endereco;
+		}
+		return end_retorno;
 	}
 
 	public void setEndereco(String endereco) {
@@ -47,6 +52,4 @@ public class Contato extends Entidade {
 		// TODO Auto-generated method stub
 		return this.nome;
 	}
-	
-
 }
