@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 	public static Connection getConnection(){
-		String url = "jdbc:mysql://localhost/agenda";
-		String user = "root";
-		String pass = "123";
+		String url = "jdbc:postgresql://localhost:5432/agenda";
+		String user = "agenda";
+		String pass = "agenda";
 		try {
 			return DriverManager.getConnection(url,user,pass);
 		} catch (SQLException e) {
