@@ -33,6 +33,12 @@ public class ReuniaoController extends HttpServlet {
 				pagina = AcoesReuniao.atualizar(request, response);
 			} else if (acao.equals("apagar")){
 				pagina = AcoesReuniao.apagar(request, response);
+			} else if (acao.equals("adiciona_contato")){
+				pagina = AcoesReuniao.adiciona_contato(request, response);
+			} else if (acao.equals("adicionar_contato")){
+				pagina = AcoesReuniao.adicionar_contato(request, response);
+			} else if (acao.equals("remover_contato")){
+				pagina = AcoesReuniao.remover_contato(request, response);
 			} else {
 				pagina = AcoesReuniao.listar(request, response);
 			}

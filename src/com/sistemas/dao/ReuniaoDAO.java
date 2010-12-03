@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sistemas.entidades.Reuniao;
+import com.sistemas.entidades.*;
 
 public class ReuniaoDAO {
 
@@ -54,11 +54,32 @@ public class ReuniaoDAO {
 			rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				Long contato_id = new Long(rs.getInt("id"));
+				Long reuniao_id = new Long(rs.getInt("id"));
 
-				reuniao.setId(contato_id);
+				reuniao.setId(reuniao_id);
 				reuniao.setLocal(rs.getString("local"));
 				reuniao.setData(rs.getDate("data"));
+
+				// here
+				String sub_sql = "select contato_id from contatos_reunioes where reuniao_id=?";
+				PreparedStatement stmt2;
+				ResultSet rs2;
+				try {
+					Contato contato = new Contato();
+					stmt2 = conn.prepareStatement(sub_sql);
+					stmt2.setInt(1, id);
+					rs2 = stmt2.executeQuery();
+
+					ContatoDAO contatoDao = new ContatoDAO();
+
+					while (rs2.next()) {
+						contato = contatoDao.getById(rs2.getInt("contato_id"));
+						reuniao.addContato(contato);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				// end
 
 			}
 		} catch (SQLException e) {
@@ -111,21 +132,40 @@ public class ReuniaoDAO {
 		return listaReunioes;
 	}
 
-    public void update(Reuniao reuniao) throws Exception {
+	public void update(Reuniao reuniao) throws Exception {
 
 		String dataFormatadaStr = null;
 
-		dataFormatadaStr = new SimpleDateFormat("yyyy-MM-dd")
-				.format(reuniao.getData());
+		dataFormatadaStr = new SimpleDateFormat("yyyy-MM-dd").format(reuniao
+				.getData());
 
 		java.sql.Date dataSql = java.sql.Date.valueOf(dataFormatadaStr);
 
-        String sql = "update reunioes set local=?, data=?" +
-                " where id=?";
+		String sql = "update reunioes set local=?, data=?" + " where id=?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setString(1, reuniao.getLocal());
-        stmt.setDate(2, dataSql);
-        stmt.setFloat(3, reuniao.getId());
-        stmt.executeUpdate();
-    }
+		stmt.setString(1, reuniao.getLocal());
+		stmt.setDate(2, dataSql);
+		stmt.setFloat(3, reuniao.getId());
+		stmt.executeUpdate();
+	}
+
+	public void adicionar_contato(Reuniao reuniao, String contato_id)
+			throws Exception {
+		String sql = "insert into contatos_reunioes (reuniao_id, contato_id) values (?, ?)";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setLong(1, reuniao.getId());
+		stmt.setLong(2, Long.parseLong(contato_id));
+		stmt.execute();
+		stmt.close();
+	}
+
+	public void remover_contato(Reuniao reuniao, String contato_id)
+			throws Exception {
+		String sql = "delete from contatos_reunioes where reuniao_id=? and contato_id=?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setLong(1, reuniao.getId());
+		stmt.setLong(2, Long.parseLong(contato_id));
+		stmt.execute();
+		stmt.close();
+	}
 }

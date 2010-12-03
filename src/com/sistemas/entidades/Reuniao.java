@@ -1,10 +1,13 @@
 package com.sistemas.entidades;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Reuniao extends Entidade {
 	
-	private Contato[] contatos;
+	private List<Contato> contatos = new ArrayList<Contato>();
+
 	private Date data;
 	private String local;
 	
@@ -18,12 +21,12 @@ public class Reuniao extends Entidade {
 		this.data = data;
 	}
 
-	public Contato[] getContatos() {
+	public List<Contato> getContatos() {
 		return contatos;
 	}
 
-	public void setContato(Contato contatos[]) {
-		this.contatos = contatos;
+	public void addContato(Contato contato) {
+		this.contatos.add(contato);
 	}
 
 	public String getLocal() {
