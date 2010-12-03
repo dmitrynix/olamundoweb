@@ -1,5 +1,6 @@
-# SQL
+# Criar Banco de dados
 
+## Tabela de Contatos
     create table contatos(
       id serial primary key,
       nome varchar(255),
@@ -7,3 +8,7 @@
       datanascimento date,
       email varchar(255)
     );
+
+## Tabela de Reunioes
+
+    create table reunioes(id serial primary key, local varchar(255), data date);
