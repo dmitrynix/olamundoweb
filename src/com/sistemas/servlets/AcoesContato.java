@@ -52,7 +52,7 @@ public class AcoesContato {
 
 		request.setAttribute("contatos", contatos);
 
-		return "index.jsp";
+		return "contato_index.jsp";
 	}
 
 	public static String ver(HttpServletRequest request,
@@ -62,7 +62,7 @@ public class AcoesContato {
 
 		request.setAttribute("contato", contato);
 
-		return "verContato.jsp";
+		return "contato_ver.jsp";
 	}
 
 	public static String editar(HttpServletRequest request,
@@ -72,7 +72,7 @@ public class AcoesContato {
 
 		request.setAttribute("contato", contato);
 
-		return "editarContato.jsp";
+		return "contato_editar.jsp";
 	}
 	
     private static Contato findContato(HttpServletRequest request)

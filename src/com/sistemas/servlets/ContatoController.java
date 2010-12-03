@@ -22,7 +22,7 @@ public class ContatoController extends HttpServlet {
 			String acao = request.getParameter("acao");
 
 			if (acao.equals("novo")) {
-				pagina = "novoContato.jsp";
+				pagina = "contato_novo.jsp";
 			} else if (acao.equals("ver")) {
 				pagina = AcoesContato.ver(request, response);
 			} else if (acao.equals("editar")) {
