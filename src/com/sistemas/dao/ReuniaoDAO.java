@@ -19,29 +19,21 @@ public class ReuniaoDAO {
 		conn = ConnectionFactory.getConnection();
 	}
 
-	public void salvar(Reuniao reuniao) {
-		String sql = "insert into reunioes(data, local) values (?, ?)";
+	public void salvar(Reuniao reuniao) throws Exception {
+		String dataFormatadaStr = null;
 
-		try {
+		dataFormatadaStr = new SimpleDateFormat("yyyy-MM-dd").format(reuniao
+				.getData());
 
-			String dataFormatadaStr = null;
+		java.sql.Date dataSql = java.sql.Date.valueOf(dataFormatadaStr);
 
-			dataFormatadaStr = new SimpleDateFormat("yyyy-MM-dd")
-					.format(reuniao.getData());
-
-			java.sql.Date dataSql = java.sql.Date.valueOf(dataFormatadaStr);
-
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setDate(1, dataSql);
-			stmt.setString(2, reuniao.getLocal());
-
-			stmt.execute();
-			stmt.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+		String sql = "insert into reunioes (local, data) values (?, ?)";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, reuniao.getLocal());
+		stmt.setDate(2, dataSql);
+		stmt.executeUpdate();
 	}
-
+	
 	public Reuniao getById(Integer id) {
 		String sql = "select * from reunioes where id=?";
 		PreparedStatement stmt;
@@ -133,7 +125,6 @@ public class ReuniaoDAO {
 	}
 
 	public void update(Reuniao reuniao) throws Exception {
-
 		String dataFormatadaStr = null;
 
 		dataFormatadaStr = new SimpleDateFormat("yyyy-MM-dd").format(reuniao

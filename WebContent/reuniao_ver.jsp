@@ -5,13 +5,15 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
+   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Reuniao Page</title>
+  	  <link rel="stylesheet" type="text/css" href="./css/corpo.css">
   </head>
   <body>
-    <p><a href="reuniao?acao=list">Todos</a>.</p>
-    <p><a href="reuniao?acao=adiciona_contato&id=${reuniao.id}">Adiciona Contato</a></p>
+   <div id="content">
+    <div id="button6"><a href="reuniao?acao=list">Todos</a></div>
+    <div id="button7"><a href="reuniao?acao=adiciona_contato&id=${reuniao.id}">Adiciona Contato</a></div>
     <p>${reuniao.id}</p>
     <p>${reuniao.local}</p>
     <p><fmt:formatDate value="${reuniao.data}" /></p>
@@ -24,5 +26,6 @@
          ;</li>
       </c:forEach>
       </ul>
+    </div>
   </body>
 </html>

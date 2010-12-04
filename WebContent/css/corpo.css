@@ -1,0 +1,146 @@
+@CHARSET "UTF-8";
+body{background:#DCDCDC;}
+/* corpo da pagina */
+#container{
+	width:780px;
+	height: 450px;
+	margin:0px auto;
+	margin-top: 40px;
+}
+#banner{
+	width:100%;
+	height:40px;
+	/*border: 1px solid black;
+	-moz-border-radius:15px 15px 15px 15px;*/
+}
+#centro{
+	width:561px;
+	height:400px;
+	margin: 0px auto;
+	background-image: url(../img/agenda.png);
+	background-repeat: no-repeat;
+	border: 1px solid #fff;
+	
+}
+#button{
+	width:90px;
+	heigh:50px;
+	margin-left: 400px;
+	margin-top: 290px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+}
+#button2{
+	width:90px;
+	heigh:50px;
+	margin-left: 400px;
+	margin-top: 7px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+}
+#rodape{
+	width:780px;
+	height: 35px;
+	/*border: 1px solid black;*/
+	position: absolute;
+}
+
+/*fim corpo*/
+/*formataçao*/
+.cont{
+	text-align: center;
+}
+.agenda{
+	font-size: 40px;
+	text-align: center;
+}
+.rodape{
+	text-align: center;
+	margin-top: 12px;
+}
+/*fim formataçao*/
+/* contato*/
+#content {
+	width: 750px;
+	margin: 0 auto;
+	background:#fff;
+	margin-bottom: 25px;
+	padding: 10px;
+	text-align:justify;
+	margin-top: 40px;
+	-moz-border-radius:15px 15px 15px 15px;
+}
+#button3{
+	width:300px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 0 0; 
+	background: #DCDCDC;
+}
+.criar{
+	text-align: center;
+}
+#button4{
+	width:200px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+	text-align: center
+}
+#button5{
+	width:200px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+	margin-top: 3px;
+	text-align: center;
+}
+/*fim contato*/
+/*reuniao*/
+#button6{
+	width:200px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+	text-align: center;
+	margin: 0px auto;
+}
+#button7{
+	width:200px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+	margin-top: 8px;
+	text-align: center;
+}
+#button8{
+	width:200px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+	margin-top: 8px;
+	text-align: center;
+}
+#button9{
+	width:200px;
+	heigh:90px;
+	-moz-border-radius:15px 15px 15px 15px; 
+	background: #DCDCDC;
+	margin-top: 8px;
+	text-align: center;
+}
+/*fim reuniao*/
+/*pagina erro*/
+#erro{
+	width: 400px;
+	height: 100px;
+	border:1px solid red;
+	margin:0px auto;
+	background: red;
+	color:#fff;
+	font-size: 20px;
+}
+.erro{
+	margin-top: 40px;
+}
+
+/*fim pagina erro*/

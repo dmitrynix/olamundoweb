@@ -18,13 +18,14 @@ public class AcoesReuniao {
 	private static ContatoDAO contatoDao = new ContatoDAO();
 
 	public static String salvar(HttpServletRequest request,
-			HttpServletResponse response) throws ParseException {
+			HttpServletResponse response) throws Exception {
 
 		Reuniao reuniao = mapReuniao(request);
 
 		reuniaoDao.salvar(reuniao);
 
-		return ver(request, response);
+//		return ver(request, response);
+		return listar(request, response);
 	}
 
 	public static String atualizar(HttpServletRequest request,

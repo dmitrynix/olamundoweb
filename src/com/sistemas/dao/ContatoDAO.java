@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.sistemas.entidades.Contato;
 
+
 public class ContatoDAO {
 
 	private Connection conn;

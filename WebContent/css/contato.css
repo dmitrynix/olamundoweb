@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+#content {
+	width: 750px;
+	margin: 0 auto;
+	background:#fff;
+	margin-bottom: 25px;
+	padding: 10px;
+	text-align:justify;
+	border:1px solid black;
+	margin-top: 50px;
+}
+#novo{
+	width: 200px;
+	height: 50px;
+	border:1px solid black;
+}

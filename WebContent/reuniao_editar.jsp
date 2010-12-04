@@ -6,10 +6,12 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Reuniao Page</title>
+    	<link rel="stylesheet" type="text/css" href="./css/reunieditar.css">
   </head>
   <body>
-    <p><a href="reuniao?acao=list">Todas</a>.</p>
-    <p><a href="reuniao?acao=ver&id=${reuniao.id}">Ver Contato</a></p>
+   <div id="content">
+    <div id="button"><a href="reuniao?acao=list" id="form_reuniao">Todas</a></div>
+    <div id="button2"><a href="reuniao?acao=ver&id=${reuniao.id}">Ver Contato</a></div>
       <form action="reuniao" method="get">
         <input type="hidden" name="id" value="${reuniao.id}">
         <input type="hidden" name="acao" value="atualizar">
@@ -17,8 +19,10 @@
         Data: <input type="text" name="data" value="<fmt:formatDate value="${reuniao.data}" />" class="data" /><br />
         <input type="submit" value="Gravar" />
     </form>
+    </div>
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="javascripts/application.js"></script>
   </body>
 </html>

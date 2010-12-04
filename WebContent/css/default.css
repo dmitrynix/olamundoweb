@@ -1,0 +1,11 @@
+.button_link {
+  width: 300px;
+  height: 30px;
+  -moz-border-radius:15px 15px 15px 15px;
+  background: #DCDCDC;
+  padding: 0px 7px;
+}
+
+.menu { padding:1px; }
+
+.error { color: red;}

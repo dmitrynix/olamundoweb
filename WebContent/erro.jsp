@@ -7,19 +7,14 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Contato Page</title>
+    <title>erro Page</title>
     	<link rel="stylesheet" type="text/css" href="./css/corpo.css">
   </head>
-  
   <body>
-  <div id="content">
-    <p><a href="contato?acao=list">Todos</a>.</p>
-    <p>${contato.id}</p>
-    <p>${contato.nome}</p>
-    <p>${contato.endereco}</p>
-    <p>${contato.email}</p>
-    <p><fmt:formatDate value="${contato.dataNascimento}" /></p>
-  </div>
+ 	<div id="content">
+ 	<div id="erro">
+ 	 	<div class="erro">Preencha os campos dos formularios</div>
+ 	</div>
+ 	</div>
   </body>
-  
 </html>
